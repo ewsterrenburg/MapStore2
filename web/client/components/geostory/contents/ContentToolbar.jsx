@@ -57,13 +57,23 @@ const toolButtons = {
     }),
     editMap: ({editMap = false, update = () => {}}) => ({
         // using normal ToolbarButton because this has no options
-        glyph: "1-map",
+        glyph: "map-edit",
         visible: true,
         disabled: editMap,
         bsStyle: editMap ? "success" : "default",
         tooltipId: "geostory.contentToolbar.editMap",
         onClick: () => {
             update( 'editMap', !editMap);
+        }
+    }),
+    editURL: ({ editURL = false, path, editWebPage = () => {}}) => ({
+        glyph: "pencil",
+        visible: true,
+        disabled: editURL,
+        bsStyle: editURL ? "success" : "default",
+        tooltipId: "geostory.contentToolbar.editURL",
+        onClick: () => {
+            editWebPage({path});
         }
     })
 };
